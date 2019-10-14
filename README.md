@@ -1,2 +1,2 @@
-# cs-project
+# OtagujPLik
 Projekt w ramach zaliczenia przedmiotu programowanie obiektowe.
