@@ -11,6 +11,9 @@ namespace OtagujPlikiTestApp
     {
         static void Main(string[] args)
         {
+            string path = @"C:\Users\User\Desktop";
+            Searcher searcher = new Searcher(path);
+            searcher.GetAllFiles(path);
         }
     }
 }
