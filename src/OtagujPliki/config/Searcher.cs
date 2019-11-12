@@ -14,12 +14,14 @@ namespace config
     public class Searcher
     {
         public string Path { get; set; }
+        public string Type { get; set; }
 
-        public Searcher(string path)
+        public Searcher(string path = "", string type = "")
         {
             try
             {
-                Path = path;
+                this.Path = path;
+                this.Type = type;
             }
             catch(ArgumentException ex)
             {
@@ -28,9 +30,9 @@ namespace config
         }
 
         //Listuje wszystkie ścieżki plików w podanym folderze o zadanym rozszerzeniu
-        public string GetAllFiles(string path)
+        public string GetAllFiles(string path, string type)
         {
-            foreach (string files in Directory.EnumerateFiles(path, "*.txt", 
+            foreach (string files in Directory.EnumerateFiles(path, type, 
                 SearchOption.AllDirectories))
             {
                 Console.WriteLine(files);

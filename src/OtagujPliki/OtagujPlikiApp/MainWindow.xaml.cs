@@ -25,5 +25,13 @@ namespace OtagujPlikiApp
         {
             InitializeComponent();
         }
+
+        private void Click_search(object sender, RoutedEventArgs e)
+        {
+            string path = _path.Text;
+            string type = "*." + _type.Text;
+            Searcher searcher = new Searcher();
+            //_results = searcher.GetAllFiles(path, type); - TODO
+        }
     }
 }
