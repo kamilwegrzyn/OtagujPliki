@@ -15,13 +15,14 @@ namespace config
     {
         public string Path { get; set; }
         public string Type { get; set; }
+        public List<string> searching_result = new List<string>();
 
         public Searcher(string path = "", string type = "")
         {
             try
             {
-                this.Path = path;
-                this.Type = type;
+                Path = path;
+                Type = type;
             }
             catch(ArgumentException ex)
             {
@@ -35,7 +36,7 @@ namespace config
             foreach (string files in Directory.EnumerateFiles(path, type, 
                 SearchOption.AllDirectories))
             {
-                Console.WriteLine(files);
+                searching_result.Add(files);
             }
             return path;
         }

@@ -31,7 +31,12 @@ namespace OtagujPlikiApp
             string path = _path.Text;
             string type = "*." + _type.Text;
             Searcher searcher = new Searcher();
-            //_results = searcher.GetAllFiles(path, type); - TODO
+            searcher.GetAllFiles(path, type);
+
+            foreach(string files in searcher.searching_result)
+            {
+                _results.Items.Add(files);
+            }
         }
     }
 }
