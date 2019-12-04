@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using config;
+using config.libs;
 
 namespace OtagujPlikiTests
 {
     [TestClass]
-    public class OtagujPlikiTests
+    public class SearcherTests
     {
         #region Test Konstruktora
         [DataRow(@"C:\\Users\User\Desktop", "*.txt")]
@@ -17,9 +17,11 @@ namespace OtagujPlikiTests
             Assert.AreEqual(searcher.Type, type);
         }
 
+        [DataTestMethod]
         [DataRow(1)]
+        [DataRow(2)]
+        [DataRow(3)]
         [ExpectedException(typeof(ArgumentException))]
-        [TestMethod]
         public void Test_Konstruktora_Niepoprawny_Argument(string path)
         {
             Searcher searcher = new Searcher(path);

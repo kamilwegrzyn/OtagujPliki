@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Searcher.cs" />
+    <Compile Include="Enums\Tags.cs" />
+    <Compile Include="Interfaces\ISearcherable.cs" />
+    <Compile Include="libs\SaveTags.cs" />
+    <Compile Include="libs\Searcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
