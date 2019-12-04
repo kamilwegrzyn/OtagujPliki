@@ -8,5 +8,7 @@ namespace config.Enums
 {
     public enum Tags
     {
+        Tagged,
+        Untagged
     }
 }
