@@ -34,10 +34,18 @@ namespace config.libs
         //Listuje wszystkie ścieżki plików w podanym folderze o zadanym rozszerzeniu
         public string GetAllFiles(string path, string type)
         {
-            foreach (string files in Directory.EnumerateFiles(path, type,
-                SearchOption.AllDirectories))
+            try
             {
-                searching_result.Add(files);
+                foreach (string files in Directory.EnumerateFiles(path, type,
+                SearchOption.AllDirectories))
+                {
+                    searching_result.Add(files);
+                }
+                return path;
+            }
+            catch(UnauthorizedAccessException uAex)
+            {
+                Console.WriteLine(uAex.Message);
             }
             return path;
         }
