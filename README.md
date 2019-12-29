@@ -2,6 +2,7 @@
 Projekt w ramach zaliczenia przedmiotu "Programowanie Obiektowe C#"
 
 Skład osobowy:
+
 Agnieszka Przybyłowicz - nr. indeksu: 12004;
 
 Sebastian Tyralski - nr. indesku: 11858;
