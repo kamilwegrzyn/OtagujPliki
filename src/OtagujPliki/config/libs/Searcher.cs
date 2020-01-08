@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using config.Interfaces;
+using System.Windows;
+using DocumentFormat.OpenXml.CustomProperties;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.VariantTypes;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace config.libs
 {
@@ -31,26 +36,33 @@ namespace config.libs
             }
         }
 
-        //Listuje wszystkie ścieżki plików w podanym folderze o zadanym rozszerzeniu
+        //Listuje wszystkie ścieżki plików w podanym folderze o zadanym rozszerzen
         public string GetAllFiles(string path, string type)
         {
-            try
+            foreach (string files in Directory.GetFiles(path, type,
+                 SearchOption.AllDirectories))
             {
-                foreach (string files in Directory.EnumerateFiles(path, type,
-                SearchOption.AllDirectories))
-                {
-                    searching_result.Add(files);
-                }
-                return path;
-            }
-            catch(UnauthorizedAccessException uAex)
-            {
-                Console.WriteLine(uAex.Message);
+                string[] dir = files.Split('\\');
+                searching_result.Add(dir[dir.Length - 1]);
+
             }
             return path;
         }
 
         //Wyciąga plik z podanej lokalizacji
-        public string GetFile(string path, string name) => throw new NotImplementedException();
+        public string GetFile(string path, string name)
+        {
+            return File.ReadAllText(path+ "\\"+name);
+        }
+
+        public string AddTagToFile(string[] files, string tag)
+        {
+            using (WordprocessingDocument document = WordprocessingDocument.Open(@"C:\Users\Agnieszka\Desktop\C#\test\Nowy Dokument programu Microsoft Word.docx", true))
+            {
+                document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; "+tag;
+                Console.WriteLine();
+            }
+            return "";
+        }
     }
 }

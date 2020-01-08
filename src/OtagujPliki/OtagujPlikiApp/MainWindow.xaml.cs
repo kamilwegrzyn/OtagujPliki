@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using config.libs;
-using System.Diagnostics;
 
 namespace OtagujPlikiApp
 {
@@ -38,16 +37,6 @@ namespace OtagujPlikiApp
             {
                 _results.Items.Add(files);
             }
-        }
-
-        private void Click_open(object sender, RoutedEventArgs e)
-        {
-            Process.Start($"{_results.SelectedItem}");
-        }
-
-        private void Click_view(object sender, RoutedEventArgs e)
-        {
-            Process.Start("explorer.exe", @"Ten komputer");
         }
     }
 }
