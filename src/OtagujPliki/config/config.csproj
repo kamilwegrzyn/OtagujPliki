@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ISearcherable.cs" />
+    <Compile Include="Interfaces\ITagable.cs" />
     <Compile Include="libs\SaveTags.cs" />
     <Compile Include="libs\Searcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
