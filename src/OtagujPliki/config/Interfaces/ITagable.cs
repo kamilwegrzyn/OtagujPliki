@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace config.Enums
+namespace config.Interfaces
 {
-    public enum Tags
+    public interface ITagable
     {
-        Tagged,
-        Untagged
     }
 }

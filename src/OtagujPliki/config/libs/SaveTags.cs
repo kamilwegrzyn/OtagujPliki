@@ -8,10 +8,7 @@ using config.Interfaces;
 
 namespace config.libs
 {
-    public class SaveTags : ISearcherable
+    public class SaveTags : ITagable
     {
-        public string GetAllFiles(string path, string type) => throw new NotImplementedException();
-
-        public string GetFile(string path, string name) => throw new NotImplementedException();
     }
 }
