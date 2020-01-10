@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtagujPlikiApp", "OtagujPlikiApp\OtagujPlikiApp.csproj", "{38818FEB-D760-4803-9DB2-D01206E5CC55}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "config", "config\config.csproj", "{A1C426AE-0CB4-4143-9179-ED1142CF6A7B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtagujPlikiTestApp", "..\Tests\OtagujPlikiTestApp\OtagujPlikiTestApp.csproj", "{79B776F1-38EB-4380-8D57-2EE3C6D49EF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtagujPlikiTests", "..\Tests\OtagujPlikiTests\OtagujPlikiTests.csproj", "{43E0BC08-0A55-4CCC-B188-EC933A8628CC}"
 EndProject
@@ -27,10 +25,6 @@ Global
 		{A1C426AE-0CB4-4143-9179-ED1142CF6A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1C426AE-0CB4-4143-9179-ED1142CF6A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1C426AE-0CB4-4143-9179-ED1142CF6A7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{79B776F1-38EB-4380-8D57-2EE3C6D49EF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79B776F1-38EB-4380-8D57-2EE3C6D49EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79B776F1-38EB-4380-8D57-2EE3C6D49EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79B776F1-38EB-4380-8D57-2EE3C6D49EF8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43E0BC08-0A55-4CCC-B188-EC933A8628CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{43E0BC08-0A55-4CCC-B188-EC933A8628CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43E0BC08-0A55-4CCC-B188-EC933A8628CC}.Release|Any CPU.ActiveCfg = Release|Any CPU

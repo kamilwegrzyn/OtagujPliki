@@ -60,7 +60,6 @@ namespace config.libs
             using (WordprocessingDocument document = WordprocessingDocument.Open(@"C:\Users\Agnieszka\Desktop\C#\test\Nowy Dokument programu Microsoft Word.docx", true))
             {
                 document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; "+tag;
-                Console.WriteLine();
             }
             return "";
         }

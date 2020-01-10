@@ -34,7 +34,7 @@ namespace OtagujPlikiInterface
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             Searcher searcher = new Searcher();
-            searcher.GetAllFiles(Path, "*.txt");
+            searcher.GetAllFiles(Path, "*." + textBoxType.Text);
             foreach (string file in searcher.searching_result)
                 listBoxResult.Items.Add(file);
         }
