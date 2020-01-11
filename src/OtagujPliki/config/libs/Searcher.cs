@@ -19,11 +19,20 @@ namespace config.libs
     /// </summary>
     public class Searcher : ISearcherable
     {
+        /// <summary>
+        /// Publiczne properties
+        /// <param name="Path"></param>
+        /// <param name="Type"></param>
+        /// </summary>
         public string Path { get; set; }
         public string Type { get; set; }
         public List<string> searching_result = new List<string>();
 
-
+        /// <summary>
+        /// Konstruktor klasy
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="type"></param>
         public Searcher(string path = "", string type = "")
         {
             try
@@ -37,7 +46,14 @@ namespace config.libs
             }
         }
 
-        //Listuje wszystkie ścieżki plików w podanym folderze o zadanym rozszerzen
+        /// <summary>
+        /// Listuje wszystkie ścieżki plików w podanym folderze o zadanym rozszerzeniu
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="type"></param>
+        /// <returns>
+        /// Funkcja zwraca ścieżki do plików
+        /// </returns>
         public string GetAllFiles(string path, string type)
         {
             foreach (string files in Directory.GetFiles(path, type,
@@ -50,12 +66,25 @@ namespace config.libs
             return path;
         }
 
-        //Wyciąga plik z podanej lokalizacji
+        /// <summary>
+        /// Wyciąga plik z podanej lokalizacji
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns>
+        /// Funkcja zwraca jeden plik o podanej nazwie
+        /// </returns>
         public string GetFile(string path, string name)
         {
             return File.ReadAllText(path+ "\\"+name);
         }
 
+        /// <summary>
+        /// Dodaje tagi do wybranych plików
+        /// </summary>
+        /// <param name="files"></param>
+        /// <param name="tag"></param>
+        /// <returns></returns>
         public string AddTagToFile(string[] files, string tag)
         {
             using (WordprocessingDocument document = WordprocessingDocument.Open($@"{Directory.GetCurrentDirectory()}\\tagi.odt", true))

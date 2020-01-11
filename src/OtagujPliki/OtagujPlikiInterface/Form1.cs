@@ -34,16 +34,9 @@ namespace OtagujPlikiInterface
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(textBoxName.Text))
-            {
-                searcher.GetFile(textBoxPath.Text, textBoxName.Text + "." + textBoxType.Text);
-            }
-            else
-            {
-                searcher.GetAllFiles(Path, "*." + textBoxType.Text);
-                foreach (string file in searcher.searching_result)
-                    listBoxResult.Items.Add(file);
-            }
+            searcher.GetAllFiles(Path, "*." + textBoxType.Text);
+            foreach (string file in searcher.searching_result)
+                listBoxResult.Items.Add(file);
         }
 
         private void textBoxPath_TextChanged(object sender, EventArgs e)
