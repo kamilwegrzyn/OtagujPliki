@@ -16,6 +16,7 @@ namespace OtagujPlikiInterface
 {
     public partial class Form1 : Form
     {
+        Searcher searcher = new Searcher();
         public string Path { get; set; }
         public Form1()
         {
@@ -33,10 +34,16 @@ namespace OtagujPlikiInterface
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            Searcher searcher = new Searcher();
-            searcher.GetAllFiles(Path, "*." + textBoxType.Text);
-            foreach (string file in searcher.searching_result)
-                listBoxResult.Items.Add(file);
+            if(!string.IsNullOrEmpty(textBoxName.Text))
+            {
+                searcher.GetFile(textBoxPath.Text, textBoxName.Text + "." + textBoxType.Text);
+            }
+            else
+            {
+                searcher.GetAllFiles(Path, "*." + textBoxType.Text);
+                foreach (string file in searcher.searching_result)
+                    listBoxResult.Items.Add(file);
+            }
         }
 
         private void textBoxPath_TextChanged(object sender, EventArgs e)
@@ -58,9 +65,7 @@ namespace OtagujPlikiInterface
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
-            string open = $"{listBoxResult.SelectedItem}";
-
-            Process.Start("explorer.exe", $@"{open}");
+            Process.Start("explorer.exe", $@"{listBoxResult.SelectedItem}");
         }
     }
 }

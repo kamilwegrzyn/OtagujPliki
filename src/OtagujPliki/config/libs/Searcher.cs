@@ -23,6 +23,7 @@ namespace config.libs
         public string Type { get; set; }
         public List<string> searching_result = new List<string>();
 
+
         public Searcher(string path = "", string type = "")
         {
             try
@@ -57,7 +58,7 @@ namespace config.libs
 
         public string AddTagToFile(string[] files, string tag)
         {
-            using (WordprocessingDocument document = WordprocessingDocument.Open(@"C:\Users\Agnieszka\Desktop\C#\test\Nowy Dokument programu Microsoft Word.docx", true))
+            using (WordprocessingDocument document = WordprocessingDocument.Open($@"{Directory.GetCurrentDirectory()}\\tagi.odt", true))
             {
                 document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; "+tag;
             }
