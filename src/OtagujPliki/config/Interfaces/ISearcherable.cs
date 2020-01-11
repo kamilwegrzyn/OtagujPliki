@@ -8,7 +8,7 @@ namespace config.Interfaces
 {
     public interface ISearcherable
     {
-        string GetAllFiles(string path, string type);
+        string GetAllFiles(string path, string type,string filename);
         string GetFile(string path, string name);
     }
 }

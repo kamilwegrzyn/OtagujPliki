@@ -52,15 +52,26 @@ namespace config.libs
         /// <param name="path"></param>
         /// <param name="type"></param>
         /// <returns>
-        /// Funkcja zwraca ścieżki do plików
+        /// Funkcja zwraca ścieżki do plików jeśli argument filename nie jest pusty wyszukuje dokładnie takiego pliku
         /// </returns>
-        public string GetAllFiles(string path, string type)
+        public string GetAllFiles(string path, string type, string filename = "")
         {
             foreach (string files in Directory.GetFiles(path, type,
                  SearchOption.AllDirectories))
             {
-                string[] dir = files.Split('\\');
-                searching_result.Add(dir[dir.Length - 1]);
+                if (filename == "")
+                {
+                    string[] dir = files.Split('\\');
+                    searching_result.Add(dir[dir.Length - 1]);
+                }
+                else
+                {
+                    string[] dir = files.Split('\\');
+                    if (dir[dir.Length - 1].Equals((filename + type.Substring(1))))
+                    {
+                        searching_result.Add(dir[dir.Length - 1]);
+                    }
+                }
 
             }
             return path;
@@ -76,7 +87,7 @@ namespace config.libs
         /// </returns>
         public string GetFile(string path, string name)
         {
-            return File.ReadAllText(path+ "\\"+name);
+            return File.ReadAllText(path + "\\" + name);
         }
 
         /// <summary>
@@ -89,7 +100,7 @@ namespace config.libs
         {
             using (WordprocessingDocument document = WordprocessingDocument.Open($@"{Directory.GetCurrentDirectory()}\\tagi.odt", true))
             {
-                document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; "+tag;
+                document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; " + tag;
             }
             return "";
         }

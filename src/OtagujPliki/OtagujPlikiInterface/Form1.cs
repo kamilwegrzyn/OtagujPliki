@@ -34,7 +34,18 @@ namespace OtagujPlikiInterface
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            searcher.GetAllFiles(Path, "*." + textBoxType.Text);
+            searcher.searching_result.Clear();
+            listBoxResult.Items.Clear();
+            string path = "";
+            if(string.IsNullOrEmpty(Path))
+            {
+                path = System.IO.Path.GetPathRoot(Environment.SystemDirectory);
+            } else
+            {
+                path = Path;
+            }
+
+            searcher.GetAllFiles(path, "*." + textBoxType.Text, textBoxName.Text);
             foreach (string file in searcher.searching_result)
                 listBoxResult.Items.Add(file);
         }
@@ -59,6 +70,22 @@ namespace OtagujPlikiInterface
         private void buttonOpen_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", $@"{listBoxResult.SelectedItem}");
+        }
+
+        private void textBoxType_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(textBoxType.Text))
+            {
+                buttonSearch.Enabled = true;
+            } else
+            {
+                buttonSearch.Enabled = false;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

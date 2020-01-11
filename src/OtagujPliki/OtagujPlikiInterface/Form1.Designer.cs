@@ -54,19 +54,19 @@
             // 
             this.textBoxPath.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.textBoxPath.Enabled = false;
-            this.textBoxPath.Location = new System.Drawing.Point(143, 23);
+            this.textBoxPath.Location = new System.Drawing.Point(161, 29);
             this.textBoxPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(359, 22);
+            this.textBoxPath.Size = new System.Drawing.Size(403, 26);
             this.textBoxPath.TabIndex = 0;
             this.textBoxPath.TextChanged += new System.EventHandler(this.textBoxPath_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 23);
+            this.label1.Location = new System.Drawing.Point(26, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(69, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ścieżka:";
             // 
@@ -75,10 +75,10 @@
             this.buttonPath.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonPath.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.buttonPath.Location = new System.Drawing.Point(300, 62);
+            this.buttonPath.Location = new System.Drawing.Point(338, 78);
             this.buttonPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPath.Name = "buttonPath";
-            this.buttonPath.Size = new System.Drawing.Size(202, 42);
+            this.buttonPath.Size = new System.Drawing.Size(227, 52);
             this.buttonPath.TabIndex = 2;
             this.buttonPath.Text = "Wybierz ścieżkę";
             this.buttonPath.UseVisualStyleBackColor = false;
@@ -89,10 +89,10 @@
             this.buttonSearch.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonSearch.Enabled = false;
             this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonSearch.Location = new System.Drawing.Point(142, 357);
+            this.buttonSearch.Location = new System.Drawing.Point(160, 446);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(176, 45);
+            this.buttonSearch.Size = new System.Drawing.Size(198, 56);
             this.buttonSearch.TabIndex = 3;
             this.buttonSearch.Text = "Wyszukaj";
             this.buttonSearch.UseVisualStyleBackColor = false;
@@ -102,11 +102,11 @@
             // 
             this.listBoxResult.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listBoxResult.FormattingEnabled = true;
-            this.listBoxResult.ItemHeight = 16;
-            this.listBoxResult.Location = new System.Drawing.Point(143, 171);
+            this.listBoxResult.ItemHeight = 20;
+            this.listBoxResult.Location = new System.Drawing.Point(161, 214);
             this.listBoxResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxResult.Name = "listBoxResult";
-            this.listBoxResult.Size = new System.Drawing.Size(359, 164);
+            this.listBoxResult.Size = new System.Drawing.Size(403, 204);
             this.listBoxResult.TabIndex = 4;
             // 
             // colorDialog1
@@ -117,9 +117,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 171);
+            this.label2.Location = new System.Drawing.Point(14, 214);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 17);
+            this.label2.Size = new System.Drawing.Size(98, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Lista plików: ";
             // 
@@ -127,10 +127,10 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Highlight;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(142, 465);
+            this.button3.Location = new System.Drawing.Point(160, 581);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 45);
+            this.button3.Size = new System.Drawing.Size(199, 56);
             this.button3.TabIndex = 6;
             this.button3.Text = "Dodaj";
             this.button3.UseVisualStyleBackColor = false;
@@ -140,10 +140,10 @@
             // 
             this.buttonOpen.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonOpen.Location = new System.Drawing.Point(325, 357);
+            this.buttonOpen.Location = new System.Drawing.Point(366, 446);
             this.buttonOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(177, 45);
+            this.buttonOpen.Size = new System.Drawing.Size(199, 56);
             this.buttonOpen.TabIndex = 7;
             this.buttonOpen.Text = "Otwórz";
             this.buttonOpen.UseVisualStyleBackColor = false;
@@ -152,9 +152,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 432);
+            this.label3.Location = new System.Drawing.Point(25, 540);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 17);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Dodaj Tag:";
             // 
@@ -162,20 +162,20 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(143, 429);
+            this.textBox1.Location = new System.Drawing.Point(161, 536);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(359, 22);
+            this.textBox1.Size = new System.Drawing.Size(403, 26);
             this.textBox1.TabIndex = 9;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(325, 465);
+            this.button1.Location = new System.Drawing.Point(366, 581);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 45);
+            this.button1.Size = new System.Drawing.Size(199, 56);
             this.button1.TabIndex = 10;
             this.button1.Text = "Usuń";
             this.button1.UseVisualStyleBackColor = false;
@@ -183,26 +183,28 @@
             // textBoxType
             // 
             this.textBoxType.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.textBoxType.Location = new System.Drawing.Point(143, 72);
+            this.textBoxType.Location = new System.Drawing.Point(161, 90);
+            this.textBoxType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxType.Name = "textBoxType";
-            this.textBoxType.Size = new System.Drawing.Size(140, 22);
+            this.textBoxType.Size = new System.Drawing.Size(157, 26);
             this.textBoxType.TabIndex = 11;
+            this.textBoxType.TextChanged += new System.EventHandler(this.textBoxType_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 77);
+            this.label4.Location = new System.Drawing.Point(26, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 17);
+            this.label4.Size = new System.Drawing.Size(34, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Typ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 124);
+            this.label5.Location = new System.Drawing.Point(25, 155);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 17);
+            this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Nazwa";
             // 
@@ -210,46 +212,50 @@
             // 
             this.textBoxName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.textBoxName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxName.Location = new System.Drawing.Point(143, 124);
+            this.textBoxName.Location = new System.Drawing.Point(161, 155);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(359, 22);
+            this.textBoxName.Size = new System.Drawing.Size(403, 26);
             this.textBoxName.TabIndex = 14;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(609, 23);
+            this.label6.Location = new System.Drawing.Point(685, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 17);
+            this.label6.Size = new System.Drawing.Size(36, 20);
             this.label6.TabIndex = 15;
             this.label6.Text = "Tag";
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.textBox2.Location = new System.Drawing.Point(696, 23);
+            this.textBox2.Location = new System.Drawing.Point(783, 29);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(240, 22);
+            this.textBox2.Size = new System.Drawing.Size(270, 26);
             this.textBox2.TabIndex = 16;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Highlight;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(696, 66);
+            this.button2.Location = new System.Drawing.Point(783, 82);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(240, 52);
+            this.button2.Size = new System.Drawing.Size(270, 65);
             this.button2.TabIndex = 17;
             this.button2.Text = "Wyszukaj";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1016, 557);
+            this.ClientSize = new System.Drawing.Size(1143, 696);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label6);
