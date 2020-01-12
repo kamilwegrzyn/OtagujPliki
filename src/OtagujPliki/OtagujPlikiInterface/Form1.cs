@@ -11,7 +11,6 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 
 namespace OtagujPlikiInterface
@@ -147,6 +146,7 @@ namespace OtagujPlikiInterface
 
         }
 
+/*<<<<<<< HEAD*/
         private void ListView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
 
@@ -154,6 +154,8 @@ namespace OtagujPlikiInterface
         }
 
         //połączenia z bazą danych
+
+/*>>>>>>> 2147af9b872667128fc1580e589598add8b0b050*/
         private void getTags(string path)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
@@ -190,9 +192,9 @@ namespace OtagujPlikiInterface
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
             sqlc.Open();
+            string sql = "DELETE FROM files WHERE Path=@param1 and Tag=@param2";
             SQLiteParameter param1 = new SQLiteParameter("param1", DbType.String);
             SQLiteParameter param2 = new SQLiteParameter("param2", DbType.String);
-            string sql = "DELETE FROM files WHERE Path=@param1 and Tag=@param2";
             SQLiteCommand cmd = new SQLiteCommand(sql, sqlc);
             cmd.Parameters.Add(param1);
             cmd.Parameters.Add(param2);
@@ -212,11 +214,22 @@ namespace OtagujPlikiInterface
 
         private void Button1_Click(object sender, EventArgs e)
         {
+/*<<<<<<< HEAD*/
             if ((listView1.SelectedItems.Count > 0) && (listViewTags.SelectedItems.Count > 0))
+/*=======*/
+            try
+/*>>>>>>> 2147af9b872667128fc1580e589598add8b0b050*/
             {
                 deleteTag(listView1.SelectedItems[0].SubItems[1].Text, listViewTags.SelectedItems[0].SubItems[0].Text);
                 getTags(listView1.SelectedItems[0].SubItems[1].Text);
             }
+/*<<<<<<< HEAD
+=======*/
+            catch(ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Musisz zaznaczyć tagi do usunięcia");
+            }
+/*>>>>>>> 2147af9b872667128fc1580e589598add8b0b050*/
         }
 
 
