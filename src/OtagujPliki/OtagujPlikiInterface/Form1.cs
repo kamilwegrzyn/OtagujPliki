@@ -11,7 +11,6 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 
 namespace OtagujPlikiInterface
@@ -146,13 +145,6 @@ namespace OtagujPlikiInterface
 
         }
 
-        private void ListView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-
-
-        }
-
-
         private void getTags(string path)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
@@ -189,9 +181,9 @@ namespace OtagujPlikiInterface
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
             sqlc.Open();
+            string sql = "DELETE FROM files WHERE Path=@param1 and Tag=@param2";
             SQLiteParameter param1 = new SQLiteParameter("param1", DbType.String);
             SQLiteParameter param2 = new SQLiteParameter("param2", DbType.String);
-            string sql = "DELETE FROM files WHERE Path=@param1 and Tag=@param2";
             SQLiteCommand cmd = new SQLiteCommand(sql, sqlc);
             cmd.Parameters.Add(param1);
             cmd.Parameters.Add(param2);
@@ -212,9 +204,15 @@ namespace OtagujPlikiInterface
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
-            deleteTag(listView1.SelectedItems[0].SubItems[1].Text, listViewTags.SelectedItems[0].SubItems[0].Text);
-            getTags(listView1.SelectedItems[0].SubItems[1].Text);
+            try
+            {
+                deleteTag(listView1.SelectedItems[0].SubItems[1].Text, listViewTags.SelectedItems[0].SubItems[0].Text);
+                getTags(listView1.SelectedItems[0].SubItems[1].Text);
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Musisz zaznaczyć tagi do usunięcia");
+            }
         }
 
 
