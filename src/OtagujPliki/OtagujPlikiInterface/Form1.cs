@@ -103,6 +103,7 @@ namespace OtagujPlikiInterface
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GetTableDB();
             if (listView1.SelectedItems.Count > 0)
             {
                 getTags(listView1.SelectedItems[0].SubItems[1].Text);
@@ -265,6 +266,19 @@ namespace OtagujPlikiInterface
                 MessageBox.Show(ex.HResult + "\n" + ex.Message, "Błąd programu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             sqlc.Close();
+        }
+
+        private void GetTableDB()
+        {
+            SQLiteConnection con = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
+            con.Open();
+
+            SQLiteCommand cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = "CREATE TABLE IF NOT EXISTS files(Path NVARCHAR(255),Name NVARCHAR(255),Tag NVARCHAR(255),WhenInserted NVARCHAR(255))";
+            cmd.ExecuteNonQuery();
+
+            con.Close();
         }
 
 
