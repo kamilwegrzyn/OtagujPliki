@@ -74,10 +74,11 @@ namespace OtagujPlikiInterface
         private void button3_Click(object sender, EventArgs e)
         {
 
-
-            addTag(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[0].Text, textBox1.Text);
-            getTags(listView1.SelectedItems[0].SubItems[1].Text);
-
+            if (textBox1.Text != "")
+            {
+                addTag(listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[0].Text, textBox1.Text);
+                getTags(listView1.SelectedItems[0].SubItems[1].Text);
+            }
         }
 
         private void buttonOpen_Click(object sender, EventArgs e)
@@ -200,7 +201,6 @@ namespace OtagujPlikiInterface
             try
             {
                 cmd.ExecuteNonQuery();
-                getTags(listView1.SelectedItems[0].SubItems[1].Text);
             }
             catch (Exception ex)
             {
@@ -212,9 +212,11 @@ namespace OtagujPlikiInterface
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
-            deleteTag(listView1.SelectedItems[0].SubItems[1].Text, listViewTags.SelectedItems[0].SubItems[0].Text);
-            getTags(listView1.SelectedItems[0].SubItems[1].Text);
+            if ((listView1.SelectedItems.Count > 0) && (listViewTags.SelectedItems.Count > 0))
+            {
+                deleteTag(listView1.SelectedItems[0].SubItems[1].Text, listViewTags.SelectedItems[0].SubItems[0].Text);
+                getTags(listView1.SelectedItems[0].SubItems[1].Text);
+            }
         }
 
 
