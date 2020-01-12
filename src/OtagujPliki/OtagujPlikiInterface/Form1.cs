@@ -153,7 +153,7 @@ namespace OtagujPlikiInterface
 
         }
 
-
+        //połączenia z bazą danych
         private void getTags(string path)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
