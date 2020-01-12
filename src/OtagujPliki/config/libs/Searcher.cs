@@ -11,6 +11,8 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.VariantTypes;
 using DocumentFormat.OpenXml.Wordprocessing;
 
+
+
 namespace config.libs
 {
     /// <summary>
@@ -62,16 +64,20 @@ namespace config.libs
                 if (filename == "")
                 {
                     string[] dir = files.Split('\\');
-                    searching_result.Add(dir[dir.Length - 1]);
+                    //searching_result.Add(dir[dir.Length - 1]);
+                    searching_result.Add(files);
                 }
                 else
                 {
                     string[] dir = files.Split('\\');
                     if (dir[dir.Length - 1].Equals((filename + type.Substring(1))))
                     {
-                        searching_result.Add(dir[dir.Length - 1]);
+                        //searching_result.Add(dir[dir.Length - 1]);
+                        searching_result.Add(files);
                     }
                 }
+                
+
 
             }
             return path;
@@ -98,11 +104,24 @@ namespace config.libs
         /// <returns></returns>
         public string AddTagToFile(string[] files, string tag)
         {
+            
+            
+            /*
             using (WordprocessingDocument document = WordprocessingDocument.Open($@"{Directory.GetCurrentDirectory()}\\tagi.odt", true))
             {
                 document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; " + tag;
-            }
+            }*/
             return "";
+            
+
+
+
+
+
+
+
+
+
         }
     }
 }
