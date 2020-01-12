@@ -35,28 +35,36 @@ namespace OtagujPlikiInterface
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            searcher.searching_result.Clear();
-            listView1.Items.Clear();
-            string path = "";
-            if(string.IsNullOrEmpty(Path))
+            try
             {
-                path = System.IO.Path.GetPathRoot(Environment.SystemDirectory);
-            } else
-            {
-                path = Path;
+                searcher.searching_result.Clear();
+                listView1.Items.Clear();
+                string path = "";
+                if (string.IsNullOrEmpty(Path))
+                {
+                    path = System.IO.Path.GetPathRoot(Environment.SystemDirectory);
+                }
+                else
+                {
+                    path = Path;
+                }
+
+                searcher.GetAllFiles(path, "*." + textBoxType.Text, textBoxName.Text);
+                foreach (string file in searcher.searching_result)
+                {
+
+
+
+                    string[] dir = file.Split('\\');
+                    ListViewItem item = new ListViewItem(new string[] { dir[dir.Length - 1], file });
+                    listView1.Items.Add(item);
+                }
             }
-
-            searcher.GetAllFiles(path, "*." + textBoxType.Text, textBoxName.Text);
-            foreach (string file in searcher.searching_result)
+            catch(UnauthorizedAccessException uAex)
             {
-
-
-
-                string[] dir = file.Split('\\');
-                ListViewItem item = new ListViewItem(new string[] { dir[dir.Length - 1], file });
-                listView1.Items.Add(item);
+                MessageBox.Show($"{uAex.Message} Proszę podać dokładniejsze parametry", "Błąd", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void textBoxPath_TextChanged(object sender, EventArgs e)
@@ -82,7 +90,14 @@ namespace OtagujPlikiInterface
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", $@"{listView1.SelectedItems[0].SubItems[1].Text}");
+            try
+            {
+                Process.Start("explorer.exe", $@"{listView1.SelectedItems[0].SubItems[1].Text}");
+            }
+            catch(ArgumentOutOfRangeException Ae)
+            {
+                MessageBox.Show("Zaznacz plik przed otwarciem", "Błąd programu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxType_TextChanged(object sender, EventArgs e)
