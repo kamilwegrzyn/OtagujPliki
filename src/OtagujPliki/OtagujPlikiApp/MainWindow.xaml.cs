@@ -22,6 +22,11 @@ namespace OtagujPlikiApp
 {
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Opisuje properties pliku
+        /// </summary>
+        /// <param name="File"></param>
+        /// <param name="Path"></param>
         public class FileProp
         {
             public string File { get; set; }
@@ -109,9 +114,23 @@ namespace OtagujPlikiApp
 
             if (textBoxAddTag.Text != "")
             {
-                addTag(((FileProp)ListViewFiles.SelectedItem).Path, ((FileProp)ListViewFiles.SelectedItem).File, textBoxAddTag.Text);
-                getTags(((FileProp)ListViewFiles.SelectedItem).Path);
+                AddTag(((FileProp)ListViewFiles.SelectedItem).Path, ((FileProp)ListViewFiles.SelectedItem).File, textBoxAddTag.Text);
+                GetTags(((FileProp)ListViewFiles.SelectedItem).Path);
             }
+        }
+
+        private void buttonRemoveTag_Click(object sender, RoutedEventArgs e)
+        {
+            if ((ListViewFiles.SelectedItems.Count > 0) && (ListViewTags.SelectedItems.Count > 0))
+                try
+                {
+                    DeleteTag(ListViewFiles.SelectedItem.ToString(), ListViewTags.SelectedItem.ToString());
+                    GetTags(((FileProp)ListViewFiles.SelectedItem).Path);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Musisz zaznaczyć tagi do usunięcia");
+                }
         }
 
         private void buttonOpen_Click(object sender, RoutedEventArgs e)
@@ -129,22 +148,51 @@ namespace OtagujPlikiApp
 
         private void buttonSearchTag_Click(object sender, RoutedEventArgs e)
         {
-            getFilesByTag(textBoxSearchTag.Text);
+            GetFilesByTag(textBoxSearchTag.Text);
         }
-        private void ListViewFiles_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
         private void ListViewFiles_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
         {
             GetTableDB();
             if (ListViewFiles.SelectedItems.Count > 0)
             {
-                getTags(((FileProp)ListViewFiles.SelectedItem).Path);
+                GetTags(((FileProp)ListViewFiles.SelectedItem).Path);
             }
         }
 
-        private void addTag(string path, string file, string tag)
+        private void textBoxType_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBoxType.Text))
+            {
+                buttonSearch.IsEnabled = true;
+            }
+            else
+            {
+                buttonSearch.IsEnabled = false;
+            }
+        }
+
+        private void textBoxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBoxType.Text))
+            {
+                buttonSearch.IsEnabled = true;
+            }
+            else
+            {
+                buttonSearch.IsEnabled = false;
+            }
+        }
+
+        //=============Komunikacja z bazą danych=============//
+
+        /// <summary>
+        /// Dodaje tag do pliku
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="file"></param>
+        /// <param name="tag"></param>
+        private void AddTag(string path, string file, string tag)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
             sqlc.Open();
@@ -180,16 +228,16 @@ namespace OtagujPlikiApp
 
 
         }
-      
 
-        //połączenia z bazą danych
-        private void getTags(string path)
+        /// <summary>
+        /// Listuje wszystkie tagi przypisane do pliku
+        /// </summary>
+        /// <param name="path"></param>
+        private void GetTags(string path)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
-            ListViewFiles.Items.Clear();
             sqlc.Open();
             string sql = "SELECT * FROM files where Path = @param1 ";
-            //string sql = "SELECT * FROM files  ";
             SQLiteParameter param1 = new SQLiteParameter("param1", DbType.String);
             SQLiteCommand cmd = new SQLiteCommand(sql, sqlc);
             cmd.Parameters.Add(param1);
@@ -202,7 +250,7 @@ namespace OtagujPlikiApp
                 {
                     while (dr.Read())
                     {
-                        ListViewFiles.Items.Add(dr[2].ToString());
+                        ListViewTags.Items.Add(dr[2].ToString());
                     }
                 }
             }
@@ -213,8 +261,12 @@ namespace OtagujPlikiApp
             sqlc.Close();
         }
 
-
-        private void deleteTag(string path, string tag)
+        /// <summary>
+        /// Usuwa przypisany tag do pliku
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="tag"></param>
+        private void DeleteTag(string path, string tag)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
             sqlc.Open();
@@ -238,23 +290,11 @@ namespace OtagujPlikiApp
             sqlc.Close();
         }
 
-        private void buttonRemoveTag_Click(object sender, RoutedEventArgs e)
-        {
-            if ((ListViewFiles.SelectedItems.Count > 0) && (ListViewFiles.SelectedItems.Count > 0))
-                try
-                {
-                    deleteTag(((FileProp)ListViewFiles.SelectedItem).Path, ((FileProp)ListViewFiles.SelectedItem).File);
-                    getTags(((FileProp)ListViewFiles.SelectedItem).Path);
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show("Musisz zaznaczyć tagi do usunięcia");
-                }
-        }
-
-
-
-        private void getFilesByTag(string tag)
+        /// <summary>
+        /// Wyszukuje plik po tagu
+        /// </summary>
+        /// <param name="tag"></param>
+        private void GetFilesByTag(string tag)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
             ListViewFiles.Items.Clear();
@@ -286,6 +326,9 @@ namespace OtagujPlikiApp
             sqlc.Close();
         }
 
+        /// <summary>
+        /// Rozpoczyna komunikację z bazą danych
+        /// </summary>
         private void GetTableDB()
         {
             SQLiteConnection con = new SQLiteConnection($"Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
@@ -298,18 +341,6 @@ namespace OtagujPlikiApp
             cmd.ExecuteNonQuery();
 
             con.Close();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(textBoxType.Text))
-            {
-                buttonSearch.IsEnabled = true;
-            }
-            else
-            {
-                buttonSearch.IsEnabled = false;
-            }
         }
     }
 }

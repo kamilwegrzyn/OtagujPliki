@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="503.6" Width="800">
     <Grid x:Name="OtagujPliki" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Margin="0,0,-6.4,0.4">
-        <TextBox x:Name="textBoxPath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,32,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
-        <TextBox x:Name="textBoxType" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Margin="115,78,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,129,0,0" TextChanged="TextBox_TextChanged" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+        <TextBox x:Name="textBoxPath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,32,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}" IsEnabled="False"/>
+        <TextBox x:Name="textBoxType" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Margin="115,78,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}" TextChanged="textBoxType_TextChanged"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,129,0,0" TextChanged="textBoxName_TextChanged" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
         <Label Content="Nazwa" HorizontalAlignment="Left" Margin="26,126,0,0" VerticalAlignment="Top"/>
         <Label Content="Typ" HorizontalAlignment="Left" Margin="26,78,0,0" VerticalAlignment="Top"/>
         <Label Content="Ścieżka" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top"/>
@@ -27,7 +27,7 @@
         <TextBox x:Name="textBoxAddTag" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,360,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
         <Button Click="buttonAddTag_Click"  x:Name="buttonAddTag" Content="Dodaj tag" HorizontalAlignment="Left" Margin="115,408,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
         <Button Click="buttonOpen_Click" x:Name="buttonOpen" Content="Otwórz" HorizontalAlignment="Left" Margin="235,316,0,0" VerticalAlignment="Top" Width="107" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-        <Button Click="buttonSearch_Click" x:Name="buttonSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="115,316,0,0" VerticalAlignment="Top" Width="115" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Button Click="buttonSearch_Click" x:Name="buttonSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="115,316,0,0" VerticalAlignment="Top" Width="115" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" IsEnabled="False"/>
 
     </Grid>
 </Window>
