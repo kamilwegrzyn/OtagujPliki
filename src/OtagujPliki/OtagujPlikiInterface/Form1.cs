@@ -94,7 +94,7 @@ namespace OtagujPlikiInterface
             {
                 Process.Start("explorer.exe", $@"{listView1.SelectedItems[0].SubItems[1].Text}");
             }
-            catch(ArgumentOutOfRangeException Ae)
+            catch
             {
                 MessageBox.Show("Zaznacz plik przed otwarciem", "Błąd programu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

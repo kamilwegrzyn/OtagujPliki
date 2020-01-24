@@ -7,35 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="503.6" Width="800">
     <Grid x:Name="OtagujPliki" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Margin="0,0,-6.4,0.4">
-        <TextBox x:Name="textBoxSearch" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,32,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+        <TextBox x:Name="textBoxPath" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,32,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
         <TextBox x:Name="textBoxType" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Margin="115,78,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
         <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,129,0,0" TextChanged="TextBox_TextChanged" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
         <Label Content="Nazwa" HorizontalAlignment="Left" Margin="26,126,0,0" VerticalAlignment="Top"/>
         <Label Content="Typ" HorizontalAlignment="Left" Margin="26,78,0,0" VerticalAlignment="Top"/>
         <Label Content="Ścieżka" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonPath" Content="Wybierz ścieżkę" HorizontalAlignment="Left" Margin="235,78,0,0" VerticalAlignment="Top" Width="107" Height="23" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold"/>
+        <Button Click="buttonPath_Click"  x:Name="buttonPath" Content="Wybierz ścieżkę" HorizontalAlignment="Left" Margin="235,78,0,0" VerticalAlignment="Top" Width="107" Height="23" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold"/>
         <Label Content="Lista plików" HorizontalAlignment="Left" Margin="26,171,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="ListViewFiles" HorizontalAlignment="Left" Height="123" Margin="115,171,0,0" VerticalAlignment="Top" Width="227" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}">
-            <ListView.View>
-                <GridView/>
-            </ListView.View>
+        <ListView SelectionChanged="ListViewFiles_SelectedIndexChanged" x:Name="ListViewFiles" HorizontalAlignment="Left" Height="123" Margin="115,171,0,0" VerticalAlignment="Top" Width="227" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}" Grid.Column="2">
         </ListView>
         <Label Content="Tag" HorizontalAlignment="Left" Margin="419,32,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxSearchTag" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="479,36,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
-        <Button x:Name="buttonSearchTag" Content="Wyszukaj" HorizontalAlignment="Left" Margin="479,81,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Button Click="buttonSearchTag_Click" x:Name="buttonSearchTag" Content="Wyszukaj" HorizontalAlignment="Left" Margin="479,81,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
         <ListView x:Name="ListViewTags" HorizontalAlignment="Left" Height="147" Margin="479,129,0,0" VerticalAlignment="Top" Width="227" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
         </ListView>
-        <Button x:Name="buttonRemoveTag" Content="Usuń" HorizontalAlignment="Left" Margin="479,310,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Button Click="buttonRemoveTag_Click"  x:Name="buttonRemoveTag" Content="Usuń" HorizontalAlignment="Left" Margin="479,310,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
         <Label Content="Dodaj tag" HorizontalAlignment="Left" Margin="26,360,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxAddTag" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="115,360,0,0" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
-        <Button x:Name="buttonAddTag" Content="Dodaj tag" HorizontalAlignment="Left" Margin="115,408,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-        <Button x:Name="buttonOpen" Content="Otwórz" HorizontalAlignment="Left" Margin="235,316,0,0" VerticalAlignment="Top" Width="107" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-        <Button x:Name="buttonSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="115,316,0,0" VerticalAlignment="Top" Width="115" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Button Click="buttonAddTag_Click"  x:Name="buttonAddTag" Content="Dodaj tag" HorizontalAlignment="Left" Margin="115,408,0,0" VerticalAlignment="Top" Width="227" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Button Click="buttonOpen_Click" x:Name="buttonOpen" Content="Otwórz" HorizontalAlignment="Left" Margin="235,316,0,0" VerticalAlignment="Top" Width="107" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Button Click="buttonSearch_Click" x:Name="buttonSearch" Content="Wyszukaj" HorizontalAlignment="Left" Margin="115,316,0,0" VerticalAlignment="Top" Width="115" Height="23" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
 
     </Grid>
 </Window>
