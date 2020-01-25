@@ -64,7 +64,7 @@ namespace OtagujPlikiApp
                 textBoxPath.Text = Path;
             }
         }
-
+        //wyszukuje plik
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -108,7 +108,7 @@ namespace OtagujPlikiApp
                 buttonSearch.IsEnabled = false;
             }
         }
-
+        //dodaje tag
         private void buttonAddTag_Click(object sender, RoutedEventArgs e)
         {
 
@@ -119,6 +119,7 @@ namespace OtagujPlikiApp
             }
         }
 
+        //usuwa tag
         private void buttonRemoveTag_Click(object sender, RoutedEventArgs e)
         {
             if ((ListViewFiles.SelectedItems.Count > 0) && (ListViewTags.SelectedItems.Count > 0)) {
@@ -135,7 +136,7 @@ namespace OtagujPlikiApp
                 }
             }
         }
-
+        //otwiera plik
         private void buttonOpen_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -335,7 +336,9 @@ namespace OtagujPlikiApp
 
         /// <summary>
         /// Rozpoczyna komunikację z bazą danych
+        /// Tworzy nową tabelę, gdy ona nie występuje
         /// </summary>
+       
         private void GetTableDB()
         {
             SQLiteConnection con = new SQLiteConnection($"Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
