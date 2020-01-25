@@ -118,7 +118,10 @@ namespace OtagujPlikiInterface
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetTableDB();
+           // GetTableDB();
+
+
+
             if (listView1.SelectedItems.Count > 0)
             {
                 getTags(listView1.SelectedItems[0].SubItems[1].Text);
@@ -128,6 +131,7 @@ namespace OtagujPlikiInterface
         private void addTag(string path, string file, string tag)
         {
             SQLiteConnection sqlc = new SQLiteConnection("Data Source="+ Environment.CurrentDirectory + "/tagi.sqlite");
+            Console.Write(Environment.CurrentDirectory);
             sqlc.Open();
             string sql = "INSERT INTO files(Path,Name,Tag,WhenInserted) VALUES(@param1,@param2,@param3,@param4)";
 
@@ -174,8 +178,11 @@ namespace OtagujPlikiInterface
 /*>>>>>>> 2147af9b872667128fc1580e589598add8b0b050*/
         private void getTags(string path)
         {
-            SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
+            MessageBox.Show(path);
             listViewTags.Items.Clear();
+
+            SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
+            
             sqlc.Open();
             string sql = "SELECT * FROM files where Path = @param1 ";
             //string sql = "SELECT * FROM files  ";

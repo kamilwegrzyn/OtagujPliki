@@ -121,16 +121,19 @@ namespace OtagujPlikiApp
 
         private void buttonRemoveTag_Click(object sender, RoutedEventArgs e)
         {
-            if ((ListViewFiles.SelectedItems.Count > 0) && (ListViewTags.SelectedItems.Count > 0))
+            if ((ListViewFiles.SelectedItems.Count > 0) && (ListViewTags.SelectedItems.Count > 0)) {
+
+                
                 try
                 {
-                    DeleteTag(ListViewFiles.SelectedItem.ToString(), ListViewTags.SelectedItem.ToString());
+                    DeleteTag(((FileProp)ListViewFiles.SelectedItem).Path, ListViewTags.SelectedItem.ToString());
                     GetTags(((FileProp)ListViewFiles.SelectedItem).Path);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
                     MessageBox.Show("Musisz zaznaczyć tagi do usunięcia");
                 }
+            }
         }
 
         private void buttonOpen_Click(object sender, RoutedEventArgs e)
@@ -235,6 +238,10 @@ namespace OtagujPlikiApp
         /// <param name="path"></param>
         private void GetTags(string path)
         {
+
+            //MessageBox.Show(Environment.CurrentDirectory + "/tagi.sqlite");
+            ListViewTags.Items.Clear();
+
             SQLiteConnection sqlc = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "/tagi.sqlite");
             sqlc.Open();
             string sql = "SELECT * FROM files where Path = @param1 ";
