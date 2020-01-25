@@ -112,10 +112,17 @@ namespace OtagujPlikiApp
         private void buttonAddTag_Click(object sender, RoutedEventArgs e)
         {
 
-            if (textBoxAddTag.Text != "")
+            try
             {
-                AddTag(((FileProp)ListViewFiles.SelectedItem).Path, ((FileProp)ListViewFiles.SelectedItem).File, textBoxAddTag.Text);
-                GetTags(((FileProp)ListViewFiles.SelectedItem).Path);
+                if (textBoxAddTag.Text != "")
+                {
+                    AddTag(((FileProp)ListViewFiles.SelectedItem).Path, ((FileProp)ListViewFiles.SelectedItem).File, textBoxAddTag.Text);
+                    GetTags(((FileProp)ListViewFiles.SelectedItem).Path);
+                }
+            }
+            catch(Exception Fe)
+            {
+                MessageBox.Show($"{Fe.Message} Proszę podać ścieżke do pliku", "Błąd",MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
