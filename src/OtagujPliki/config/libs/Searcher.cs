@@ -76,52 +76,8 @@ namespace config.libs
                         searching_result.Add(files);
                     }
                 }
-                
-
-
             }
             return path;
-        }
-
-        /// <summary>
-        /// Wyciąga plik z podanej lokalizacji
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="name"></param>
-        /// <returns>
-        /// Funkcja zwraca jeden plik o podanej nazwie
-        /// </returns>
-        public string GetFile(string path, string name)
-        {
-            return File.ReadAllText(path + "\\" + name);
-        }
-
-        /// <summary>
-        /// Dodaje tagi do wybranych plików
-        /// </summary>
-        /// <param name="files"></param>
-        /// <param name="tag"></param>
-        /// <returns></returns>
-        public string AddTagToFile(string[] files, string tag)
-        {
-            
-            
-            /*
-            using (WordprocessingDocument document = WordprocessingDocument.Open($@"{Directory.GetCurrentDirectory()}\\tagi.odt", true))
-            {
-                document.PackageProperties.Keywords += string.IsNullOrEmpty(document.PackageProperties.Keywords) ? tag : "; " + tag;
-            }*/
-            return "";
-            
-
-
-
-
-
-
-
-
-
         }
     }
 }
